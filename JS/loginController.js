@@ -6,11 +6,11 @@ app.controller("loginController", ['$scope', '$state','$http',function($scope, $
 		$scope.user.autherror = "";
 		$scope.user.authenticationError = false;
 		var data = {
-				"user_id" : $scope.user.userName,
-				"pwd" : $scope.user.password
+				"user_id":$scope.user.userName,
+				"pwd":$scope.user.password
 		}
-		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/merchent/login',data).then(function (response) {
-			if(response.success){
+		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/merchent/login',JSON.stringify(data)).then(function (response) {
+			if(response.success_status){
 			 	$scope.user.user_id = response.user_id;
         		$scope.user.business_name = response.business_name;
         		$scope.user.owner_name = response.owner_name;

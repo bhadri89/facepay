@@ -48,7 +48,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 			"fileName" : file
 		};
 		//$state.go('pin');
-		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/veifyImage',data).then(function (response) {
+		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/veifyImage',JSON.stringify(data)).then(function (response) {
 			if(response.success){
 				$state.go('pin');
 			} else {

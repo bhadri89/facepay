@@ -13,12 +13,12 @@ app.controller("pinController", ['$scope', '$state','$http','$rootScope',functio
 	
 	$scope.validatePin = function(){
 		var data = {
-			"mobile" : $rootScope.mob,
-			"passcode" : $scope.pinData.pin,
-			"amount" : $scope.pinData.amount
+			"mobile" :$rootScope.mob,
+			"passcode":$scope.pinData.pin,
+			"amount":$scope.pinData.amount
 		};
-		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/veifyPin',data).then(function (response) {
-			if(response.success){
+		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/veifyPin',JSON.stringify(data)).then(function (response) {
+			if(response.success_status){
 				$scope.face.success = true;
 				$scope.face.successMsg = "Amount has been debitted successfully !!";
 			} else {
