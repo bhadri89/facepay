@@ -1,0 +1,107 @@
+ @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+ 
+.display-none{
+	display: none;
+}
+
+.login-form {
+	padding: 0 !important;
+    margin: 0 auto;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 1px #eaeef7;
+    display: inline-block;
+    text-align: left;
+    height : 290px;
+}
+.login_header {
+	background-color: #c50823;
+}
+
+.login_header>h1 {
+	font-size:16px;
+	font-weight:400;
+	margin-top:15px;
+	margin-bottom:15px;
+	color:white;
+} 
+
+.user_label {
+	margin-top:5px;
+}
+.user_label>label,.pwd_label>label {
+	font-weight:500;
+}
+.user_label>label,.pwd_label>label {
+	font-weight:500;
+}
+.user_label>span,.pwd_label>span {
+    width: 16px;
+    height: 17px;
+    margin-right: 5px;
+    margin-top: -7px;
+    display: inline-block;
+}
+.user-txtBox input,.pwd-txtBox input {
+	border-top: 0 !important;
+    border-right: 0 !important;
+    border-left: 0 !important;
+    box-shadow: none !important;
+    border-color: #eee !important;
+    padding:0 !important;
+    background:#fff !important;
+    margin-bottom: 10px;
+}
+.user-txtBox input::-webkit-input-placeholder,.pwd-txtBox input::-webkit-input-placeholder,
+.user-txtBox input::-moz-placeholder,.pwd-txtBox input::-moz-placeholder,
+.user-txtBox input:-ms-input-placeholder,.pwd-txtBox input:-ms-input-placeholder {
+	color:#ccc;
+	text-transform:uppercase;
+}
+
+.form-control {
+	border-radius:0px;
+}
+.form-control:focus {
+	border-color:#118591;
+}
+
+.btn.btn-primary{
+    border: 1px solid;
+    text-transform: uppercase;
+    background: #c50823!important;
+    border-color: #c50823!important;
+    border-radius: 17.5px!important;
+}
+
+.panel_body {
+	max-width: 1000px;
+    margin-left: 120px;
+    margin-right: 15px;
+    margin-top: 50px;
+    background: #f3f8fd;
+}
+
+.btn.btn-default {
+    text-transform: uppercase;
+    background: #fff;
+    color: #c50823;
+    border-color: #c50823!important;
+    border-radius: 17.5px!important;
+}
+
+.errorText{
+    background: maroon;
+    color: white!important;
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: 2px;
+    position: relative;
+    display: block;
+    float: left;
+    text-align: left;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top: 1px!important;
+    padding-bottom: 1px!important;
+}

@@ -1,0 +1,72 @@
+<div class="col-xs-12" data-ng-controller="loginController">
+				<div class="col-xs-12 col-md-7" style="margin-top:25px">
+					<img alt="" src="images/login.gif">
+				</div>
+				<div class="col-xs-12 col-md-5" align="center" style="margin-top:25px">
+					<div class="login-form">
+						<form name="loginForm" role="form" method="post" autocomplete="off" novalidate>
+							<!-- <input type="hidden" data-ng-model="user.username"  id="userid" name = "userid" />
+							<input type="hidden" data-ng-model="user.pwd"  id="pwd" name = "pwd" />
+						</form> -->
+						<div class="form-group" style="margin-top: -15px !important;">
+							<div class="col-xs-12 col-sm-12 login_header">
+								<h1>Sign In</h1>
+							</div>
+						</div>
+						<div class="form-group" data-ng-show ="user.authenticationError">
+	 						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div> 				
+	 						<div align="center" class="col-xs-12 alert alert-danger">		
+	 							<a href="javascript:;" data-ng-click="closeDialog()" class="close" aria-label="close">&times;</a>		
+								<span class="icon-Error sm-ic red"></span><strong>{{user.autherror}}</strong>		
+							</div>
+						</div>  	
+					<div class="form-group">
+						<div class="col-xs-5 user_label">
+							<span class="fa fa-user"></span>
+							<label for="userId" class=" control-label">User Id</label>
+						</div>
+						<div class="col-xs-7 user-txtBox">
+							<input type="text" autofocus data-ng-model="user.userName"  id="username" name = "username"  required class="form-control"
+							 placeholder="Enter your username"  
+							data-ng-focus = "user.focusInput()" data-ng-trim="false" data-no-special-char maxlength="20" />
+							<span class="errorText"	data-ng-show="loginForm.$submitted && loginForm.username.$error.required" >Please enter a User ID</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-5 pwd_label">
+							<span class="fa fa-key"></span>
+							<label for="password" class=" control-label">Password</label>
+						</div>
+						<div class="col-xs-7">
+							<div class="pwd-txtBox">
+								<input type="password"  class="form-control" id="password"  name="password"
+										data-ng-model="user.password" required placeholder="Enter your password" data-focus-me/>
+							</div>
+							<span class="errorText"	data-ng-show="loginForm.$submitted && loginForm.password.$error.required" >Please enter a Password</span>
+						</div>	
+					</div>		
+
+						<div class="form-group">			
+							<div class="col-xs-6" align="center" style = "margin-top :10px;">
+									<button type="submit" class="btn btn-primary "  
+									style = "margin-top : 10px;"  data-ng-click = "loginForm.$valid && submitForLogin()"> Submit
+										<!-- <span data-ng-if = "!loading" translate = "login.form.button">Sign in</span>
+										<span data-ng-if = "loading"><span translate = "login.form.loading">Signing in</span><i class="fa fa-spinner fa-spin"></i></span> -->
+									</button>							
+							</div>
+							<div  class="col-xs-6" align="center"  style = "margin-top :25px;">
+									<label>First time User?</label>
+									<a style="text-decoration: none;" href = "javascript:;" class="control-label" data-ng-click = "resetFlow()"
+										translate = "login.form.frgtPass">Register</a>						
+							</div>
+						</div>
+						</form>
+					</div>
+					<div class="form-group col-xs-12" style="margin:10px; padding-left: 80px;">
+						<img class="col-xs-5" alt="" src="images/no_card.png" style="height:75px;padding-left:12px;" >
+						<img class="col-xs-6" alt="" src="images/no_mobile.jpg" style="height: 75px;width: 165px;">
+						<img class="col-xs-12" alt="" src="images/pay-with-your-face-graphizona-blogs.jpg" style="width: 330px;height: 108px; margin: 10px;padding-left: 3px;">
+					</div>
+				</div>
+				
+		</div>

@@ -1,0 +1,18 @@
+<div data-ng-controller = "faceScanController">
+		<div class="form-group" data-ng-show ="face.error">
+	 			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div> 				
+	 			<div align="center" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 alert alert-danger">		
+	 				<a href="javascript:;" data-ng-click="closeDialog()" class="close" aria-label="close">&times;</a>		
+					<span class="icon-Error sm-ic red"></span><strong>{{face.errorMsg}}</strong>		
+				</div>
+		</div>  
+		<div class="container">
+				<video class="col-xs-12 col-md-6" id="video" width="320" height="320" autoplay ></video>
+				<canvas class="col-xs-12 col-md-6" id="canvas" width="320" height="320" ></canvas>
+		</div>
+		<div class="form-group" align="center" style="margin-top : 20px;">
+				<button type="button" id="startCam" class="btn btn-primary" data-ng-hide="showStartCam" data-ng-click="startScan()">Start Cam</button>
+				<button type="button" id="snap" class="btn btn-primary" data-ng-hide="showSnap" data-ng-click="takeSnap()">Capture</button>
+				<button type="button" id="sendPic" class="btn btn-default" data-ng-hide="" data-ng-click="sendData()">Submit</button>
+		</div>
+</div>

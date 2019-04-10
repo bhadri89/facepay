@@ -1,0 +1,44 @@
+<div  data-ng-controller="welcomeController" >
+	<div class="col-xs-12" align="center" data-ng-show="welcome.show">
+	<label style="margin-top:50px"><strong>Welcome {{welcome.name}}</strong></label>
+	<div class="row">
+		<div >
+			<button type="submit"
+				class="btn btn-primary"
+				 style="margin-top: 50px;"
+				data-ng-click="goToTansac()">Continue 
+			</button>
+		</div>
+	</div>
+	</div>
+
+
+<div class="panel panel-primary panel_body" data-ng-show="!welcome.show">
+	<div class="panel-body">
+		<form class="form-horizontal" novalidate name="myForm" autocomplete="off" method="post" form-on-change="closeDialog()" form-element-focus>
+			<div class="form-group" align="center">
+				<div align="center" class="col-xs-12 col-sm-3">		
+					<label for="benMobileNumber">Mobile Number</label>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<input type="text" class="form-control" data-ng-model="welcome.mobileNumber" name="mobileNumber" data-numbers-only="{length:10}"
+						placeholder="" data-ng-trim="false" required data-ng-disabled="isDisabled"/>
+						
+					<span class="errorText"	data-ng-show="myForm.$submitted && myForm.mobileNumber.$error.required" >Please enter a valid Mobile Number</span>
+							
+					<span class="errorText"	data-ng-show="!myForm.mobileNumber.$error.required
+						&& myForm.mobileNumber.$error.length">Please enter a 10 digit Mobile Number</span>	
+				</div>
+			</div>
+			<!-- Submit Button -->
+			<div class="form-group" align="center">
+				<button type="submit" class="btn btn-primary"
+					data-ng-click="myForm.$valid && scanFace()">Submit</button>
+				<button type="button" class="btn btn-default" data-ng-click=goBack()>Back</button>
+			</div>
+				
+			
+		</form>
+	</div>
+</div>
+</div>

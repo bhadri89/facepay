@@ -1,0 +1,69 @@
+<div data-ng-controller="pinController">
+	
+	<form class="form-horizontal" name="myForm" autocomplete="off" style="width:100%" method="post" 
+		data-ng-submit="myForm.$valid && validatePin()" form-element-focus form-on-change="closeDialog()" novalidate>
+		
+		<input type="text" name="dummyid" data-ng-paste="$event.preventDefault()" tabindex="-1" class="invisible-input"/>
+		<input type="password" name="dummyPwd" data-ng-paste="$event.preventDefault()" tabindex="-1" data-ng-model="dummytxnPwd2" class="invisible-input"/>
+		<input type="password" name="dummytxnPwd" data-ng-paste="$event.preventDefault()" data-ng-model="dummytxnPwd2" class="invisible-input">
+		
+		<div class="form-group" data-ng-show="pinData.error">
+			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div> 				
+	 			<div align="center" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 alert alert-danger">
+				<span class="icon-Error sm-ic red"></span><strong><span>{{pinData.errorMsg}}</span></strong>
+			</div>
+		</div>
+		
+		<div class="form-group" data-ng-show="pinData.success">
+			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div> 				
+	 			<div align="center" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 alert alert-success">
+				<span class="icon-Posak sm-ic green_c"></span><strong><span>{{pinData.successMag}}</span></strong>
+			</div>
+		</div>
+		
+		<div class="form-group">
+				<div align="center">
+					<div class="col-xs-12 col-sm-3">
+					 	<label for="amount">Amount</label> 
+					</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-5 col-md-5">
+					<input class="form-control"	name="amount" data-ng-model="pinData.amount" maxlength="15"
+					placeholder="Please enter an amount to be debitted"  data-ng-paste="$event.preventDefault()" required 
+					data-currency-format="{min: 1, maxDecimals: 2, prepend: '&#8377;'}"/>
+					<span class="fis-rwd-errorText"	data-ng-show="myForm.amount.$error.required 
+					&& myForm.$submitted">Please enter a valid Amount</span>
+					<span class="fis-rwd-errorText"	data-ng-show="!myForm.amount.$error.required && myForm.amount.$hasVisited 
+						&& myForm.amount.$error.min"></span>		
+				</div>
+			</div>
+			
+		<!-- ATM PIN field -->
+		<div class="form-group">
+			<div align="left" class="col-xs-12 col-sm-3 col-md-3">
+				<label for="atmPIN" translate="validateATMPIN.form.atmpin"></label>
+			</div>
+			<div class="col-xs-12 col-sm-9 col-md-4">
+				<input type="text" name="dummyid" data-ng-paste="$event.preventDefault()" tabindex="-1" class="display-none"/>		
+				<input type="password" name="dummyPwd" data-ng-paste="$event.preventDefault()" tabindex="-1" class="display-none"/>				
+				<input type="password" placeholder="Enter your Pin" class="form-control" name="atmPIN" 
+					data-ng-model="pinData.pin" maxlength="4" only-Digits-Format data-ng-change="resetErrorFlags()" required/>
+				<input type="password" name="dummytxnPwd" data-ng-paste="$event.preventDefault()" data-ng-model="dummytxnPwd2" class="display-none">
+				<span class="fis-rwd-errorText"	data-ng-show="myForm.$submitted && myForm.atmPIN.$error.required" 
+					>Please Enter 4 digit Pin</span>
+				<span class="fis-rwd-errorText"	data-ng-show="!myForm.atmPIN.$error.required && atmPinData.invalidATMPIN" 
+				>Invalid Pin</span>										
+			</div>	
+		</div>
+		<!-- Buttons -->			
+		<div class="form-group" align="center">
+			<button type="submit" class="btn btn-primary"></button>	
+			<button type="button" class="btn btn-default" data-ng-click="cancel()">Cancel</button>
+		</div>
+		<input type="text" name="dummyid" data-ng-paste="$event.preventDefault()" tabindex="-1" class="invisible-input"/>
+		<input type="password" name="dummyPwd" data-ng-paste="$event.preventDefault()" tabindex="-1" data-ng-model="dummytxnPwd2" class="invisible-input"/>
+		<input type="password" name="dummytxnPwd" data-ng-paste="$event.preventDefault()" data-ng-model="dummytxnPwd2" class="invisible-input">
+	</form>
+</div>
+</div>
