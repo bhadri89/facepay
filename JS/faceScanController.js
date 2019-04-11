@@ -32,7 +32,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 		$scope.showSubmit = false;
 	}
 		document.getElementById("snap").addEventListener("click", function() {
-			context.drawImage(video, 0, 0, 300, 200);
+			context.drawImage(video, 0, 0, 200, 200);
 			var base64Image = canvas.toDataURL("image/jpeg");
 			UserPhoto = base64Image.replace(/data:image\/jpeg;base64,/g, '');
 			$scope.UserPhoto = UserPhoto;
