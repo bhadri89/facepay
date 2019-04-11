@@ -6,14 +6,13 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
 	$scope.submitForLogin = function(){
 		$scope.user.autherror = "";
 		$scope.user.authenticationError = false;
-		var data = {
-				"user_id" : $scope.user.userName,
-				"pwd" : $scope.user.password
-			};
 		$.ajax({
             method:"POST",
             url:$rootScope.urlFirstpart+'/merchent/login',
-            data:data,
+            data:JSON.stringify({
+				"user_id" : $scope.user.userName,
+				"pwd" : $scope.user.password
+			}),
             contentType:"application/json;charset=UTF-8"
     	}).done(function(response) {
 			if(response.data.success_status){
