@@ -24,7 +24,7 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
 				$state.go('welcome');
 			} else {
 				$scope.user.autherror = "Invalid User ID or Password";
-				$scope.user.authenticationError = false;
+				$scope.user.authenticationError = true;
 			}
 		})
 		
