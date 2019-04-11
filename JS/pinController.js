@@ -17,8 +17,13 @@ app.controller("pinController", ['$scope', '$state','$http','$rootScope',functio
 			"passcode":$scope.pinData.pin,
 			"amount":$scope.pinData.amount
 		};
-		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/veifyPin',JSON.stringify(data)).then(function (response) {
-			if(response.data.success_status){
+		$.ajax({
+            method:"POST",
+            url:$rootScope.urlFirstpart+"/veifyPin",
+            data:data,
+            contentType:"application/json;charset=UTF-8"
+    	}).done(function(response) {
+			if(response.data.success){
 				$scope.face.success = true;
 				$scope.face.successMsg = "Amount has been debitted successfully !!";
 			} else {

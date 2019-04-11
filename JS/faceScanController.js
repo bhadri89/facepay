@@ -47,8 +47,12 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 			"imgdata" : dataURL,
 			"fileName" : file
 		};
-		//$state.go('pin');
-		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/veifyImage',JSON.stringify(data)).then(function (response) {
+		$.ajax({
+            method:"POST",
+            url:$rootScope.urlFirstpart+"/veifyImage",
+            data:data,
+            contentType:"application/json;charset=UTF-8"
+    	}).done(function(response) {
 			if(response.data.success){
 				$state.go('pin');
 			} else {

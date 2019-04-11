@@ -2,6 +2,7 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
 	$scope.user = {};
 	$scope.user.autherror = "";
 	$scope.user.authenticationError = false;
+	$rootScope.urlFirstpart = 'http://BLR1-LTJHHMQN2:4344/frsEngine/'
 	$scope.submitForLogin = function(){
 		$scope.user.autherror = "";
 		$scope.user.authenticationError = false;
@@ -9,9 +10,14 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
 				"user_id" : $scope.user.userName,
 				"pwd" : $scope.user.password
 			};
-		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/merchent/login',data).then(function (response) {
+		$.ajax({
+            method:"POST",
+            url:$rootScope.urlFirstpart+'/merchent/login',
+            data:data,
+            contentType:"application/json;charset=UTF-8"
+    	}).done(function(response) {
 			if(response.data.success_status){
-			 	$scope.user.user_id = response.data.user_id;
+				$scope.user.user_id = response.data.user_id;
         		$scope.user.business_name = response.data.business_name;
         		$scope.user.owner_name = response.data.owner_name;
         		$scope.user.bank_acc = response.data.bank_acc;
@@ -21,12 +27,7 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
 				$scope.user.authenticationError = false;
 			}
 		})
-		/*if($scope.user.userName === "2" && $scope.user.password === "1"){
-			$state.go('welcome');
-		} else {
-			$scope.user.authenticationError = true;
-			$scope.user.autherror = "Invalid Username or Password";
-		}*/
+		
 	} 
 	
 	$scope.closeDialog = function() {
