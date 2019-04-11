@@ -42,15 +42,10 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 		$scope.face.errorMsg = "";
 		var randNum = Math.floor((Math.random() * 10000)+1);
 		file = "Pic" + randNum + ".jpg";
-		var data = {
-			"mobile" : $rootScope.mob,
-			"imgdata" : dataURL,
-			"fileName" : file
-		};
 		$.ajax({
             method:"POST",
             url:$rootScope.urlFirstpart+"/veifyImage",
-            data:data,
+            data:JSON.stringify({"mobile" : $rootScope.mob,"imgdata" : dataURL,"fileName" : file}),
             contentType:"application/json;charset=UTF-8"
     	}).done(function(response) {
 			if(response.data.success){
