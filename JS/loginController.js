@@ -15,7 +15,7 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
 			}),
             contentType:"application/json;charset=UTF-8"
     	}).done(function(response) {
-			if(response.data.success_status){
+			if(response.success_status){
 				$scope.user.user_id = response.data.user_id;
         		$scope.user.business_name = response.data.business_name;
         		$scope.user.owner_name = response.data.owner_name;
