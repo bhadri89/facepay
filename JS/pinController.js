@@ -22,7 +22,7 @@ app.controller("pinController", ['$scope', '$state','$http','$rootScope',functio
 		}),
             contentType:"application/json;charset=UTF-8"
     	}).done(function(response) {
-			if(response.data.success){
+			if(response.success){
 				$scope.face.success = true;
 				$scope.face.successMsg = "Amount has been debitted successfully !!";
 			} else {
