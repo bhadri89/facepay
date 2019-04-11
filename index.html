@@ -17,52 +17,11 @@
 		  <script type="text/javascript" src="JS/loginController.js"></script>
 		  <script type="text/javascript" src="JS/welcomeController.js"></script>
 		  <script type="text/javascript" src="JS/faceScanController.js"></script>
+		  <script type="text/javascript" src="JS/pinController.js"></script>
 		  <script type="text/javascript" src="JS/directive.js"></script>
 		  <link rel="stylesheet" href="CSS/innovate.css">
-	</head>
-	<style>
-		#container {
-		    margin: 0px auto;
-		    width: 500px;
-		    height: 375px;
-		    border: 10px #333 solid;
-		}
-		#videoElement {
-		    width: 500px;
-		    height: 375px;
-		    background-color: #666;
-		}
-	</style>
-	
+	</head>	
 	<body data-ng-app="WebApp" style="background: #eaeef7;">
-		<!-- <script>
-		
-		 const player = document.getElementById('player');
-		  const canvas = document.getElementById('canvas');
-		  const context = canvas.getContext('2d');
-		  const captureButton = document.getElementById('capture');
-		
-		   const constraints = {
-		    video: true,
-		  }; 
-		
-		  captureButton.addEventListener('click', () => {
-		    // Draw the video frame to the canvas.
-		   	context.drawImage(player, 0, 0, canvas.width, canvas.height);
-		    var dataURL = canvas.toDataURL();
-		    console.log(dataURL);
-		 // Stop all video streams.
-		    player.srcObject.getVideoTracks().forEach(track => track.stop());
-		  
-		  });
-		
-		 
-		  // Attach the video stream to the video element and autoplay.
-		  navigator.mediaDevices.getUserMedia(constraints)
-		    .then((stream) => {
-		      player.srcObject = stream;
-		    })
-		</script> -->
 		 <div data-ui-view></div>
 	</body>
 </html>
