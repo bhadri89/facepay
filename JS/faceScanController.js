@@ -6,7 +6,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 	var video = document.getElementById('video');
-	var dataURL = null;
+	var intArray = null;
 	
 	$scope.showStartCam = false;
 	$scope.showSnap = true;
@@ -34,7 +34,15 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 		document.getElementById("snap").addEventListener("click", function() {
 			context.drawImage(video, 0, 0, 300, 200);
 			dataURL = canvas.toDataURL();
-			console.log(dataURL);
+			dataURI = dataURL.split(',');
+			var type = dataURI[0].split(':')[1].split(';')[0],
+			byteString = atob(dataURI[1]),
+		byteStringLength = byteString.length,
+        arrayBuffer = new ArrayBuffer(byteStringLength),
+        intArray = new Uint8Array(arrayBuffer);
+		for (var i = 0; i < byteStringLength; i++) {
+			intArray[i] = byteString.charCodeAt(i);
+		}
 		});
 	
 	$scope.sendData = function(){
@@ -45,7 +53,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 		$.ajax({
             method:"POST",
             url:$rootScope.urlFirstpart+"/veifyImage",
-            data:JSON.stringify({"mobile" : $rootScope.mob,"imgdata" : dataURL,"fileName" : file}),
+            data:JSON.stringify({"mobile" : $rootScope.mob,"imgdata" : intArray,"fileName" : file}),
             contentType:"application/json;charset=UTF-8"
     	}).done(function(response) {
 			if(response.success){
@@ -57,6 +65,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 		})
 		
 	}
+	
 	$scope.closeDialog = function() {
 		$scope.face.error = false;
 		$scope.face.errorMsg = "";
