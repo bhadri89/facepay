@@ -2,7 +2,7 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
 	$scope.user = {};
 	$scope.user.autherror = "";
 	$scope.user.authenticationError = false;
-	$rootScope.urlFirstpart = 'http://BLR1-LTJHHMQN2:4344/frsEngine/'
+	$rootScope.urlFirstpart = 'http://BLR1-LTJHHMQN2:4344/frsEngine'
 	$scope.submitForLogin = function(){
 		$scope.user.autherror = "";
 		$scope.user.authenticationError = false;
