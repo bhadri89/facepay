@@ -4,10 +4,6 @@
 				</div>
 				<div class="col-xs-12 col-md-5" align="center" style="margin-top:25px">
 					<div class="login-form">
-						<form name="loginForm" role="form" method="post" autocomplete="off" novalidate>
-							<!-- <input type="hidden" data-ng-model="user.username"  id="userid" name = "userid" />
-							<input type="hidden" data-ng-model="user.pwd"  id="pwd" name = "pwd" />
-						</form> -->
 						<div class="form-group" style="margin-top: -15px !important;">
 							<div class="col-xs-12 col-sm-12 login_header">
 								<h1>Sign In</h1>
@@ -19,7 +15,9 @@
 	 							<a href="javascript:;" data-ng-click="closeDialog()" class="close" aria-label="close">&times;</a>		
 								<span class="icon-Error sm-ic red"></span><strong>{{user.autherror}}</strong>		
 							</div>
-						</div>  	
+						</div>
+						<form name="loginForm" role="form" method="post" autocomplete="off" novalidate>
+							
 					<div class="form-group">
 						<div class="col-xs-5 user_label">
 							<span class="fa fa-user"></span>
