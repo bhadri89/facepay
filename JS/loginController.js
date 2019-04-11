@@ -17,10 +17,11 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
     	}).done(function(response) {
 			if(response.success_status){
 				$scope.user.user_id = response.user_id;
-        		$scope.user.business_name = response.business_name;
-        		$scope.user.owner_name = response.owner_name;
-        		$scope.user.bank_acc = response.bank_acc;
-        		$rootScope.name =  $scope.user.owner_name;
+        			$scope.user.business_name = response.business_name;
+        			$scope.user.owner_name = response.owner_name;
+        			$scope.user.bank_acc = response.bank_acc;
+        			$rootScope.name =  $scope.user.owner_name;
+				$state.go('welcome');
 			} else {
 				$scope.user.autherror = "Invalid User ID or Password";
 				$scope.user.authenticationError = false;
