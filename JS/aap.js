@@ -21,9 +21,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
         templateUrl: 'views/login.html' 
 	}).state('welcome', {
 		templateUrl: 'views/welcome.html'
-	}).state('transaction', {
-		url: "/",
-		templateUrl: 'views/transaction.html'
+	}).state('pin', {
+		templateUrl: 'views/pin.html'
 	}).state('faceScan', {
         templateUrl: 'views/FaceScan.html' 
 	})
