@@ -12,15 +12,14 @@ app.controller("pinController", ['$scope', '$state','$http','$rootScope',functio
 	}
 	
 	$scope.validatePin = function(){
-		var data = {
-			"mobile" :$rootScope.mob,
-			"passcode":$scope.pinData.pin,
-			"amount":$scope.pinData.amount
-		};
 		$.ajax({
             method:"POST",
             url:$rootScope.urlFirstpart+"/veifyPin",
-            data:data,
+            data:JSON.stringify({
+			"mobile" :$rootScope.mob,
+			"passcode":$scope.pinData.pin,
+			"amount":$scope.pinData.amount
+		}),
             contentType:"application/json;charset=UTF-8"
     	}).done(function(response) {
 			if(response.data.success){
