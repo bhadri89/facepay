@@ -8,7 +8,7 @@ app.controller("loginController", ['$scope', '$state','$http','$rootScope',funct
 		var myMap = new Map();
         myMap.set('user_id', $scope.user.userName);
         myMap.set('pwd', $scope.user.password);
-		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/merchent/login',JSON.stringify(myMap)).then(function (response) {
+		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/merchent/login',myMap).then(function (response) {
 			if(response.data.success_status){
 			 	$scope.user.user_id = response.data.user_id;
         		$scope.user.business_name = response.data.business_name;
