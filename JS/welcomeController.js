@@ -2,7 +2,7 @@ app.controller("welcomeController", ['$scope','$rootScope', '$state',function($s
 	
 	$scope.welcome = {};
 	$scope.welcome.show = true;
-	$scope.welcome.name = 'Bhadresh';
+	$scope.welcome.name = $rootScope.name;
 	$scope.goToTansac = function(){
 		$scope.welcome.show = false;
 	}

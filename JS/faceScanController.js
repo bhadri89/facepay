@@ -49,7 +49,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 		};
 		//$state.go('pin');
 		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/veifyImage',JSON.stringify(data)).then(function (response) {
-			if(response.success){
+			if(response.data.success){
 				$state.go('pin');
 			} else {
 				$scope.face.error = true;

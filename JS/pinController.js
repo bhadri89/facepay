@@ -18,7 +18,7 @@ app.controller("pinController", ['$scope', '$state','$http','$rootScope',functio
 			"amount":$scope.pinData.amount
 		};
 		$http.post('http://BLR1-LTJHHMQN2:4344/frsEngine/veifyPin',JSON.stringify(data)).then(function (response) {
-			if(response.success_status){
+			if(response.data.success_status){
 				$scope.face.success = true;
 				$scope.face.successMsg = "Amount has been debitted successfully !!";
 			} else {
