@@ -33,7 +33,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 	}
 		document.getElementById("snap").addEventListener("click", function() {
 			context.drawImage(video, 0, 0, 300, 200);
-			dataURL = canvas.toDataURL('image/jpeg');
+			dataURL = canvas.toDataURL();
 			console.log(dataURL);
 		});
 	
