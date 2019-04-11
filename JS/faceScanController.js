@@ -48,7 +48,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
             data:JSON.stringify({"mobile" : $rootScope.mob,"imgdata" : dataURL,"fileName" : file}),
             contentType:"application/json;charset=UTF-8"
     	}).done(function(response) {
-			if(response.data.success){
+			if(response.success){
 				$state.go('pin');
 			} else {
 				$scope.face.error = true;
