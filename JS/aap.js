@@ -25,5 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
 		templateUrl: 'views/pin.html'
 	}).state('faceScan', {
         templateUrl: 'views/FaceScan.html' 
+	}).state('accSummary', {
+        templateUrl: 'views/accSummary.html' 
 	})
 }]);
