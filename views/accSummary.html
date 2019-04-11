@@ -1,0 +1,64 @@
+<div data-ng-controller="accSummaryController">
+		<div class="form-group" align="center">
+				<div align="center" class="col-xs-12 col-sm-3">		
+					<label for="benMobileNumber"><strong>Name : </strong></label>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<label for="benMobileNumber">{{name}}</label>
+				</div>
+			</div>
+		<div class="form-group" align="center">
+				<div align="center" class="col-xs-12 col-sm-3">		
+					<label for="benMobileNumber"><strong>Account Number :</strong></label>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<label for="benMobileNumber">{{bank_acc}}</label>
+				</div>
+			</div>
+		<div class="panel panel-primary" data-ng-show="showResultSection">
+			<div class="panel-heading">Account Summary</div>
+			<div class="panel-body">
+				<!-- Error Message Display -->
+				<div data-ng-show ="showError" >
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" ></div>
+						<div align="center" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 alert alert-danger">
+							<span class="icon-Error sm-ic red"></span><strong>No Records Found</strong>
+						</div>
+				</div>
+				<div  data-ng-show="showTable" style="width: 100%;">
+					<table class="table table-bordered">
+						<colgroup>
+						<col style="width: 14%;">
+						<!-- <col style="width: 15%;"> -->
+						<col style="width: 40%;">
+						<col style="width: 12%;">
+						<col style="width: 16%;">
+						<col style="width: 16%;">
+						</colgroup>
+						<thead>
+							<tr class="header">
+								<th style="text-align: center;">Date</th>
+								<th style="text-align: center;">Description</th>
+								<th style="text-align: center;">Debit/Credit</th>
+								<th style="text-align: center;">Amount</th>
+								<th style="text-align: center;">Closing Balance</th>	
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="simple-table-row" data-ng-repeat="row in displaytranData">
+								<td align="center">{{row.date | date:'dd-MM-yyyy'}}</td>
+								<td align="left">{{row.description}}</td>
+								<td align="center">{{row.crdr}}</td>
+								<td align="right">{{row.amount | currencyFormat:"&#8377;"}}</td>
+								<td align="right">{{row.endingBalance | currencyFormat:"&#8377;"}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" align="center" style="margin-top : 20px;">
+				<button type="button" id="sendPic" class="btn btn-primary" data-ng-click="cancel()">BACK</button>
+		</div>
+</div>
+	
