@@ -33,17 +33,9 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 	}
 		document.getElementById("snap").addEventListener("click", function() {
 			context.drawImage(video, 0, 0, 300, 200);
-			dataURL = canvas.toDataURL('img/jpg');
-			dataURI = dataURL.split(',');
-			var type = dataURI[0].split(':')[1].split(';')[0],
-			byteString = atob(dataURI[1]),
-		byteStringLength = byteString.length,
-        arrayBuffer = new ArrayBuffer(byteStringLength),
-        intArray = new Uint8Array(arrayBuffer);
-		for (var i = 0; i < byteStringLength; i++) {
-			intArray[i] = byteString.charCodeAt(i);
-		}
-			$scope.intArray = intArray;
+			var base64Image = canvas.toDataURL("image/jpeg");
+			UserPhoto = base64Image.replace(/data:image\/jpeg;base64,/g, '');
+			$scope.UserPhoto = UserPhoto;
 		});
 	
 	$scope.sendData = function(){
@@ -54,7 +46,7 @@ app.controller("faceScanController", ['$scope', '$state','$http','$rootScope',fu
 		$.ajax({
             method:"POST",
             url:$rootScope.urlFirstpart+"/veifyImage",
-            data:JSON.stringify({"mobile" : $rootScope.mob,"imgdata" : $scope.intArray,"fileName" : file}),
+            data:JSON.stringify({"mobile" : $rootScope.mob,"imgdata" : $scope.UserPhoto,"fileName" : file}),
             contentType:"application/json;charset=UTF-8"
     	}).done(function(response) {
 			if(response.success){
